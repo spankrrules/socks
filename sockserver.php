@@ -9,7 +9,7 @@ set_time_limit(0);
  * as it comes in. */
 ob_implicit_flush();
 
-$address = '192.168.172.114';
+$address = '192.168.172.108';
 $port = 4492;
 
 if (($sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP)) === false) {
@@ -49,7 +49,7 @@ do {
             socket_close($msgsock);
             break 2;
         }
-        
+
         $talkback = "PHP: You said '$buf'.\n";
         socket_write($msgsock, $talkback, strlen($talkback));
         echo "$buf\n";
